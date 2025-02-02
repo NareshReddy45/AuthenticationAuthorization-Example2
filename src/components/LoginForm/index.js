@@ -1,5 +1,7 @@
 import {Component} from 'react'
 
+import Cookies from 'js-cookie'
+
 import './index.css'
 
 class LoginForm extends Component {
@@ -19,6 +21,7 @@ class LoginForm extends Component {
   }
 
   onSubmitSuccess = () => {
+Cookies.set('jwt_token',jwtToken,{expires: 30})
     const {history} = this.props
 
     history.replace('/')
